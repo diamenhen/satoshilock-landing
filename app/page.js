@@ -16,26 +16,26 @@ export default function LandingPage() {
 
         <div style={styles.cards}>
           <a href="https://sol.satoshilock.app" style={styles.card}>
-            <div style={styles.cardIconBg('rgba(153, 69, 255, 0.1)')}>
+            <div style={styles.cardIconBg('rgba(153, 69, 255, 0.12)')}>
               <div style={{...styles.cardIcon, background: 'linear-gradient(135deg, #9945FF, #14F195)'}} />
             </div>
             <h2 style={styles.cardTitle}>Solana</h2>
             <p style={styles.cardDescription}>Lock SOL and any SPL token with cliff vesting</p>
-            <div style={styles.cardCta}>Launch App →</div>
+            <div style={styles.cardCta}>Launch App &rarr;</div>
           </a>
 
           <a href="https://evm.satoshilock.app" style={styles.card}>
-            <div style={styles.cardIconBg('rgba(125, 211, 255, 0.1)')}>
-              <div style={{...styles.cardIcon, background: 'linear-gradient(135deg, #7dd3ff, #c2f160)'}} />
+            <div style={styles.cardIconBg('rgba(232, 123, 62, 0.12)')}>
+              <div style={{...styles.cardIcon, background: 'linear-gradient(135deg, #E87B3E, #F4A460)'}} />
             </div>
             <h2 style={styles.cardTitle}>EVM</h2>
-            <p style={styles.cardDescription}>Ethereum · Base · BNB Smart Chain</p>
-            <div style={styles.cardCta}>Launch App →</div>
+            <p style={styles.cardDescription}>Ethereum &middot; Base &middot; BNB Smart Chain</p>
+            <div style={styles.cardCta}>Launch App &rarr;</div>
           </a>
         </div>
 
         <div style={styles.features}>
-          Immutable · Non-custodial · Open source · Zero protocol fees
+          Immutable &middot; Non-custodial &middot; Open source &middot; Zero protocol fees
         </div>
 
         <div style={styles.divider} />
@@ -64,7 +64,7 @@ export default function LandingPage() {
 
         <div style={styles.footer}>
           <a href="https://github.com/diamenhen" style={styles.footerLink} target="_blank" rel="noopener">GitHub</a>
-          <span style={{color: '#2a3143'}}>·</span>
+          <span style={{color: '#2A2D36'}}>&middot;</span>
           <a href="https://x.com/AriantheChain" style={styles.footerLink} target="_blank" rel="noopener">Twitter</a>
         </div>
       </div>
@@ -73,12 +73,14 @@ export default function LandingPage() {
 }
 
 function ContractRow({ chain, address, href }) {
-  const shortAddr = `${address.slice(0, 6)}...${address.slice(-4)}`;
+  const shortAddr = address.length > 20
+    ? address.slice(0, 6) + '...' + address.slice(-4)
+    : address.slice(0, 6) + '...' + address.slice(-4);
   return (
     <a href={href} target="_blank" rel="noopener" style={styles.contractRow}>
       <span style={styles.contractChain}>{chain}</span>
       <span style={styles.contractAddr}>{shortAddr}</span>
-      <span style={styles.contractArrow}>↗</span>
+      <span style={styles.contractArrow}>&#8599;</span>
     </a>
   );
 }
@@ -88,8 +90,8 @@ function LockLogo({ size = 80 }) {
     <svg width={size} height={size} viewBox="0 0 32 32" fill="none">
       <defs>
         <linearGradient id="lockG" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#7dd3ff" />
-          <stop offset="1" stopColor="#c2f160" />
+          <stop offset="0" stopColor="#E87B3E" />
+          <stop offset="1" stopColor="#F4A460" />
         </linearGradient>
       </defs>
       <rect x="6" y="14" width="20" height="14" rx="2.5" stroke="url(#lockG)" strokeWidth="2.2" fill="none"/>
@@ -104,10 +106,10 @@ function Fonts() {
   return (
     <style>{`
       @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-      body { margin:0; background:#0a0c12; min-height:100vh; }
+      body { margin:0; background:#0B0C10; min-height:100vh; }
       * { box-sizing:border-box; }
       a { text-decoration:none; }
-      a:focus-visible { outline: 2px solid #c2f160; outline-offset: 4px; border-radius: 4px; }
+      a:focus-visible { outline: 2px solid #E87B3E; outline-offset: 4px; border-radius: 4px; }
       @media (max-width: 640px) {
         .sl-cards { grid-template-columns: 1fr !important; }
       }
@@ -118,8 +120,8 @@ function Fonts() {
 const styles = {
   page: {
     minHeight: '100vh',
-    background: '#0a0c12',
-    color: '#e8edf7',
+    background: '#0B0C10',
+    color: '#ECEBE4',
     fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
     display: 'flex',
     alignItems: 'center',
@@ -133,7 +135,7 @@ const styles = {
   },
   logo: {
     display: 'inline-block',
-    filter: 'drop-shadow(0 0 30px rgba(125,211,255,0.35))',
+    filter: 'drop-shadow(0 0 30px rgba(232, 123, 62, 0.4))',
     marginBottom: 24,
   },
   title: {
@@ -142,14 +144,14 @@ const styles = {
     letterSpacing: '-0.03em',
     margin: 0,
     marginBottom: 14,
-    background: 'linear-gradient(135deg, #7dd3ff 0%, #c2f160 100%)',
+    background: 'linear-gradient(135deg, #E87B3E 0%, #F4A460 100%)',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
     backgroundClip: 'text',
   },
   tagline: {
     fontSize: 17,
-    color: '#9aa5b8',
+    color: '#9B9A95',
     lineHeight: 1.6,
     margin: 0,
     marginBottom: 48,
@@ -161,11 +163,11 @@ const styles = {
     marginBottom: 32,
   },
   card: {
-    background: '#151a26',
-    border: '1px solid #1e2435',
+    background: '#16181E',
+    border: '1px solid #2A2D36',
     borderRadius: 16,
     padding: '32px 20px',
-    color: '#e8edf7',
+    color: '#ECEBE4',
     transition: 'all 0.2s',
     display: 'flex',
     flexDirection: 'column',
@@ -197,15 +199,15 @@ const styles = {
   },
   cardDescription: {
     fontSize: 13,
-    color: '#9aa5b8',
+    color: '#9B9A95',
     lineHeight: 1.5,
     margin: 0,
     marginBottom: 20,
     minHeight: 40,
   },
   cardCta: {
-    background: 'linear-gradient(180deg, #c2f160, #a8d850)',
-    color: '#0a0c12',
+    background: 'linear-gradient(180deg, #E87B3E, #C4884A)',
+    color: '#0B0C10',
     fontSize: 13,
     fontWeight: 700,
     padding: '9px 18px',
@@ -213,13 +215,13 @@ const styles = {
   },
   features: {
     fontSize: 12,
-    color: '#6b7590',
+    color: '#6B6F78',
     marginBottom: 24,
     letterSpacing: '0.02em',
   },
   divider: {
     height: 1,
-    background: '#1e2435',
+    background: '#2A2D36',
     margin: '24px 0',
   },
   contractsSection: {
@@ -228,7 +230,7 @@ const styles = {
   contractsTitle: {
     fontSize: 10,
     fontWeight: 600,
-    color: '#6b7590',
+    color: '#6B6F78',
     letterSpacing: '0.1em',
     textTransform: 'uppercase',
     marginBottom: 14,
@@ -244,24 +246,25 @@ const styles = {
     justifyContent: 'space-between',
     padding: '10px 16px',
     borderRadius: 8,
-    color: '#9aa5b8',
+    color: '#9B9A95',
     fontSize: 12,
     transition: 'background 0.15s',
   },
   contractChain: {
     fontWeight: 500,
+    color: '#F4A460',
     flex: '0 0 auto',
     textAlign: 'left',
   },
   contractAddr: {
     fontFamily: 'monospace',
     fontSize: 11,
-    color: '#6b7590',
+    color: '#6B6F78',
     flex: '1 1 auto',
     textAlign: 'center',
   },
   contractArrow: {
-    color: '#6b7590',
+    color: '#6B6F78',
     fontSize: 12,
     flex: '0 0 auto',
   },
@@ -271,11 +274,11 @@ const styles = {
     justifyContent: 'center',
     gap: 12,
     fontSize: 12,
-    color: '#6b7590',
+    color: '#6B6F78',
     marginTop: 24,
   },
   footerLink: {
-    color: '#9aa5b8',
+    color: '#9B9A95',
     transition: 'color 0.15s',
   },
 };
