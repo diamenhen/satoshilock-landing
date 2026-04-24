@@ -43,22 +43,10 @@ export default function LandingPage() {
         <div style={styles.contractsSection}>
           <div style={styles.contractsTitle}>Production contracts</div>
           <div style={styles.contractsList}>
-            <ContractRow
-              chain="Ethereum Mainnet"
-              address="0xD40Febe77b4a9bdE56e13cf4067638b98A061925"
-              href="https://etherscan.io/address/0xD40Febe77b4a9bdE56e13cf4067638b98A061925" />
-            <ContractRow
-              chain="Base Mainnet"
-              address="0xbD1d35b574361632EC2cc1376dCD346741997474"
-              href="https://basescan.org/address/0xbD1d35b574361632EC2cc1376dCD346741997474" />
-            <ContractRow
-              chain="BNB Smart Chain"
-              address="0xbD1d35b574361632EC2cc1376dCD346741997474"
-              href="https://bscscan.com/address/0xbD1d35b574361632EC2cc1376dCD346741997474" />
-            <ContractRow
-              chain="Solana Mainnet"
-              address="CE7vQdyjXSEvPdeEdrmbEpM8hSPZi2L4MKAWi26kpZ2H"
-              href="https://solscan.io/account/CE7vQdyjXSEvPdeEdrmbEpM8hSPZi2L4MKAWi26kpZ2H" />
+            <ContractRow chain="Ethereum Mainnet" address="0xD40Febe77b4a9bdE56e13cf4067638b98A061925" href="https://etherscan.io/address/0xD40Febe77b4a9bdE56e13cf4067638b98A061925" />
+            <ContractRow chain="Base Mainnet" address="0xbD1d35b574361632EC2cc1376dCD346741997474" href="https://basescan.org/address/0xbD1d35b574361632EC2cc1376dCD346741997474" />
+            <ContractRow chain="BNB Smart Chain" address="0xbD1d35b574361632EC2cc1376dCD346741997474" href="https://bscscan.com/address/0xbD1d35b574361632EC2cc1376dCD346741997474" />
+            <ContractRow chain="Solana Mainnet" address="CE7vQdyjXSEvPdeEdrmbEpM8hSPZi2L4MKAWi26kpZ2H" href="https://solscan.io/account/CE7vQdyjXSEvPdeEdrmbEpM8hSPZi2L4MKAWi26kpZ2H" />
           </div>
         </div>
 
@@ -73,9 +61,7 @@ export default function LandingPage() {
 }
 
 function ContractRow({ chain, address, href }) {
-  const shortAddr = address.length > 20
-    ? address.slice(0, 6) + '...' + address.slice(-4)
-    : address.slice(0, 6) + '...' + address.slice(-4);
+  const shortAddr = address.slice(0, 6) + '...' + address.slice(-4);
   return (
     <a href={href} target="_blank" rel="noopener" style={styles.contractRow}>
       <span style={styles.contractChain}>{chain}</span>
@@ -110,175 +96,33 @@ function Fonts() {
       * { box-sizing:border-box; }
       a { text-decoration:none; }
       a:focus-visible { outline: 2px solid #E87B3E; outline-offset: 4px; border-radius: 4px; }
-      @media (max-width: 640px) {
-        .sl-cards { grid-template-columns: 1fr !important; }
-      }
+      @media (max-width: 640px) { .sl-cards { grid-template-columns: 1fr !important; } }
     `}</style>
   );
 }
 
 const styles = {
-  page: {
-    minHeight: '100vh',
-    background: '#0B0C10',
-    color: '#ECEBE4',
-    fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: '40px 24px',
-  },
-  container: {
-    width: '100%',
-    maxWidth: 760,
-    textAlign: 'center',
-  },
-  logo: {
-    display: 'inline-block',
-    filter: 'drop-shadow(0 0 30px rgba(232, 123, 62, 0.4))',
-    marginBottom: 24,
-  },
-  title: {
-    fontSize: 52,
-    fontWeight: 800,
-    letterSpacing: '-0.03em',
-    margin: 0,
-    marginBottom: 14,
-    background: 'linear-gradient(135deg, #E87B3E 0%, #F4A460 100%)',
-    WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent',
-    backgroundClip: 'text',
-  },
-  tagline: {
-    fontSize: 17,
-    color: '#9B9A95',
-    lineHeight: 1.6,
-    margin: 0,
-    marginBottom: 48,
-  },
-  cards: {
-    display: 'grid',
-    gridTemplateColumns: '1fr 1fr',
-    gap: 20,
-    marginBottom: 32,
-  },
-  card: {
-    background: '#16181E',
-    border: '1px solid #2A2D36',
-    borderRadius: 16,
-    padding: '32px 20px',
-    color: '#ECEBE4',
-    transition: 'all 0.2s',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    textAlign: 'center',
-    cursor: 'pointer',
-  },
-  cardIconBg: (bg) => ({
-    width: 64,
-    height: 64,
-    background: bg,
-    borderRadius: '50%',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 20,
-  }),
-  cardIcon: {
-    width: 36,
-    height: 36,
-    borderRadius: '50%',
-  },
-  cardTitle: {
-    fontSize: 22,
-    fontWeight: 700,
-    margin: 0,
-    marginBottom: 8,
-    letterSpacing: '-0.01em',
-  },
-  cardDescription: {
-    fontSize: 13,
-    color: '#9B9A95',
-    lineHeight: 1.5,
-    margin: 0,
-    marginBottom: 20,
-    minHeight: 40,
-  },
-  cardCta: {
-    background: 'linear-gradient(180deg, #E87B3E, #C4884A)',
-    color: '#0B0C10',
-    fontSize: 13,
-    fontWeight: 700,
-    padding: '9px 18px',
-    borderRadius: 8,
-  },
-  features: {
-    fontSize: 12,
-    color: '#6B6F78',
-    marginBottom: 24,
-    letterSpacing: '0.02em',
-  },
-  divider: {
-    height: 1,
-    background: '#2A2D36',
-    margin: '24px 0',
-  },
-  contractsSection: {
-    marginBottom: 20,
-  },
-  contractsTitle: {
-    fontSize: 10,
-    fontWeight: 600,
-    color: '#6B6F78',
-    letterSpacing: '0.1em',
-    textTransform: 'uppercase',
-    marginBottom: 14,
-  },
-  contractsList: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: 2,
-  },
-  contractRow: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    padding: '10px 16px',
-    borderRadius: 8,
-    color: '#9B9A95',
-    fontSize: 12,
-    transition: 'background 0.15s',
-  },
-  contractChain: {
-    fontWeight: 500,
-    color: '#F4A460',
-    flex: '0 0 auto',
-    textAlign: 'left',
-  },
-  contractAddr: {
-    fontFamily: 'monospace',
-    fontSize: 11,
-    color: '#6B6F78',
-    flex: '1 1 auto',
-    textAlign: 'center',
-  },
-  contractArrow: {
-    color: '#6B6F78',
-    fontSize: 12,
-    flex: '0 0 auto',
-  },
-  footer: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 12,
-    fontSize: 12,
-    color: '#6B6F78',
-    marginTop: 24,
-  },
-  footerLink: {
-    color: '#9B9A95',
-    transition: 'color 0.15s',
-  },
+  page: { minHeight: '100vh', background: '#0B0C10', color: '#ECEBE4', fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '40px 24px' },
+  container: { width: '100%', maxWidth: 760, textAlign: 'center' },
+  logo: { display: 'inline-block', filter: 'drop-shadow(0 0 30px rgba(232, 123, 62, 0.4))', marginBottom: 24 },
+  title: { fontSize: 52, fontWeight: 800, letterSpacing: '-0.03em', margin: 0, marginBottom: 14, background: 'linear-gradient(135deg, #E87B3E 0%, #F4A460 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' },
+  tagline: { fontSize: 17, color: '#9B9A95', lineHeight: 1.6, margin: 0, marginBottom: 48 },
+  cards: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, marginBottom: 32 },
+  card: { background: '#16181E', border: '1px solid #2A2D36', borderRadius: 16, padding: '32px 20px', color: '#ECEBE4', transition: 'all 0.2s', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', cursor: 'pointer' },
+  cardIconBg: (bg) => ({ width: 64, height: 64, background: bg, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 20 }),
+  cardIcon: { width: 36, height: 36, borderRadius: '50%' },
+  cardTitle: { fontSize: 22, fontWeight: 700, margin: 0, marginBottom: 8, letterSpacing: '-0.01em' },
+  cardDescription: { fontSize: 13, color: '#9B9A95', lineHeight: 1.5, margin: 0, marginBottom: 20, minHeight: 40 },
+  cardCta: { background: 'linear-gradient(180deg, #E87B3E, #C4884A)', color: '#0B0C10', fontSize: 13, fontWeight: 700, padding: '9px 18px', borderRadius: 8 },
+  features: { fontSize: 12, color: '#6B6F78', marginBottom: 24, letterSpacing: '0.02em' },
+  divider: { height: 1, background: '#2A2D36', margin: '24px 0' },
+  contractsSection: { marginBottom: 20 },
+  contractsTitle: { fontSize: 10, fontWeight: 600, color: '#6B6F78', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 14 },
+  contractsList: { display: 'flex', flexDirection: 'column', gap: 2 },
+  contractRow: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 16px', borderRadius: 8, color: '#9B9A95', fontSize: 12, transition: 'background 0.15s' },
+  contractChain: { fontWeight: 500, color: '#F4A460', flex: '0 0 auto', textAlign: 'left' },
+  contractAddr: { fontFamily: 'monospace', fontSize: 11, color: '#6B6F78', flex: '1 1 auto', textAlign: 'center' },
+  contractArrow: { color: '#6B6F78', fontSize: 12, flex: '0 0 auto' },
+  footer: { display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12, fontSize: 12, color: '#6B6F78', marginTop: 24 },
+  footerLink: { color: '#9B9A95', transition: 'color 0.15s' },
 };
