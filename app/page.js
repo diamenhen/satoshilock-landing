@@ -16,8 +16,8 @@ export default function LandingPage() {
 
         <div style={styles.cards}>
           <a href="https://sol.satoshilock.app" style={styles.card}>
-            <div style={styles.cardIconBg('rgba(153, 69, 255, 0.12)')}>
-              <div style={{...styles.cardIcon, background: 'linear-gradient(135deg, #9945FF, #14F195)'}} />
+            <div style={styles.cardIconBg('rgba(232, 123, 62, 0.12)')}>
+              <div style={{...styles.cardIcon, background: 'linear-gradient(135deg, #E87B3E, #F4A460)'}} />
             </div>
             <h2 style={styles.cardTitle}>Solana</h2>
             <p style={styles.cardDescription}>Lock SOL and any SPL token with cliff vesting</p>
