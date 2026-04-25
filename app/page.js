@@ -104,7 +104,7 @@ const styles = {
   cardDescription: { fontSize: 13, color: '#9B9A95', lineHeight: 1.5, margin: 0, marginBottom: 20, minHeight: 40 },
   cardCta: { background: '#E87B3E', color: '#0B0C10', fontSize: 13, fontWeight: 500, padding: '9px 20px', borderRadius: 999, fontFamily: 'inherit' },
 
-  contractsSection: { marginBottom: 20 },
+  contractsSection: { marginBottom: 20, textAlign: 'left' },
   contractsTitle: { fontSize: 10, fontWeight: 600, color: '#6B6F78', letterSpacing: '0.06em', marginBottom: 14 },
   contractsList: { display: 'flex', flexDirection: 'column', gap: 2 },
   contractRow: { display: 'grid', gridTemplateColumns: '180px 1fr', alignItems: 'center', gap: 16, padding: '10px 16px', borderRadius: 8, color: '#9B9A95', fontSize: 12, transition: 'background 0.15s' },
