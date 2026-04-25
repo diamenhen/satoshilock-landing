@@ -1,8 +1,8 @@
 export const metadata = {
-  title: "SatoshiLock — Token Vesting on Any Chain",
+  title: "SatoshiLock",
   description: "Immutable, non-custodial token vesting on Solana, Ethereum, Base, and BNB Smart Chain. Open source. Zero protocol fees.",
   openGraph: {
-    title: "SatoshiLock — Token Vesting on Any Chain",
+    title: "SatoshiLock",
     description: "Lock tokens across Solana, Ethereum, Base, and BSC with customizable cliff and vesting schedules.",
     url: "https://satoshilock.app",
     siteName: "SatoshiLock",
@@ -10,7 +10,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SatoshiLock — Token Vesting on Any Chain",
+    title: "SatoshiLock",
     description: "Multi-chain token vesting. Immutable. Open source. Zero fees.",
   },
 };
