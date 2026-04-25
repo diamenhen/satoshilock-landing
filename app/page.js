@@ -108,7 +108,7 @@ function Fonts() {
 
 const styles = {
   page: { minHeight: '100vh', background: '#0B0C10', color: '#ECEBE4', fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '40px 24px' },
-  container: { position: 'relative', width: '100%', maxWidth: 760, textAlign: 'center' },
+  container: { width: '100%', maxWidth: 760, textAlign: 'center' },
   bracketTL: { position: 'absolute', top: 16, left: 16, width: 24, height: 24, borderTop: '3px solid #E87B3E', borderLeft: '3px solid #E87B3E', zIndex: 10 },
   bracketTR: { position: 'absolute', top: 16, right: 16, width: 24, height: 24, borderTop: '3px solid #E87B3E', borderRight: '3px solid #E87B3E', zIndex: 10 },
   bracketBL: { position: 'absolute', bottom: 16, left: 16, width: 24, height: 24, borderBottom: '3px solid #E87B3E', borderLeft: '3px solid #E87B3E', zIndex: 10 },
