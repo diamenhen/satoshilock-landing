@@ -62,7 +62,7 @@ function ContractRow({ chain, address, href }) {
     <a href={href} target="_blank" rel="noopener" style={styles.contractRow}>
       <span style={styles.contractChain}>{chain}</span>
       <span style={styles.contractAddr}>{shortAddr}</span>
-      <span style={styles.contractArrow}>&#8599;</span>
+
     </a>
   );
 }
@@ -107,10 +107,10 @@ const styles = {
   contractsSection: { marginBottom: 20 },
   contractsTitle: { fontSize: 10, fontWeight: 600, color: '#6B6F78', letterSpacing: '0.06em', marginBottom: 14 },
   contractsList: { display: 'flex', flexDirection: 'column', gap: 2 },
-  contractRow: { display: 'grid', gridTemplateColumns: '180px 1fr 24px', alignItems: 'center', gap: 16, padding: '10px 16px', borderRadius: 8, color: '#9B9A95', fontSize: 12, transition: 'background 0.15s' },
+  contractRow: { display: 'grid', gridTemplateColumns: '180px 1fr', alignItems: 'center', gap: 16, padding: '10px 16px', borderRadius: 8, color: '#9B9A95', fontSize: 12, transition: 'background 0.15s' },
   contractChain: { fontWeight: 500, color: '#F4A460', textAlign: 'left' },
-  contractAddr: { fontFamily: 'monospace', fontSize: 11, color: '#6B6F78', textAlign: 'center' },
-  contractArrow: { color: '#6B6F78', fontSize: 12, textAlign: 'right' },
+  contractAddr: { fontFamily: 'monospace', fontSize: 11, color: '#6B6F78', textAlign: 'right' },
+
   footer: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, fontSize: 12, color: '#6B6F78', marginTop: 24, flexWrap: 'wrap' },
   footerLink: { color: '#E87B3E', fontWeight: 600, transition: 'color 0.15s' },
   footerMeta: { color: '#6B6F78' },
