@@ -107,7 +107,7 @@ const styles = {
   contractsSection: { marginBottom: 20, textAlign: 'left' },
   contractsTitle: { fontSize: 10, fontWeight: 600, color: '#6B6F78', letterSpacing: '0.06em', marginBottom: 14 },
   contractsList: { display: 'flex', flexDirection: 'column', gap: 2 },
-  contractRow: { display: 'grid', gridTemplateColumns: '180px 1fr', alignItems: 'center', gap: 16, padding: '10px 16px', borderRadius: 8, color: '#9B9A95', fontSize: 12, transition: 'background 0.15s' },
+  contractRow: { display: 'grid', gridTemplateColumns: '180px 1fr', alignItems: 'center', gap: 16, padding: '10px 0', borderRadius: 8, color: '#9B9A95', fontSize: 12, transition: 'background 0.15s' },
   contractChain: { fontWeight: 500, color: '#F4A460', textAlign: 'left' },
   contractAddr: { fontFamily: 'monospace', fontSize: 11, color: '#6B6F78', textAlign: 'right' },
 
