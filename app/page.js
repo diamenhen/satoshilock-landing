@@ -111,7 +111,8 @@ const styles = {
   contractChain: { fontWeight: 500, color: '#F4A460', textAlign: 'left' },
   contractAddr: { fontFamily: 'monospace', fontSize: 11, color: '#6B6F78', textAlign: 'right' },
 
-  footer: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, fontSize: 12, color: '#6B6F78', marginTop: 24, flexWrap: 'wrap' },
+  footer: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 16, fontSize: 12, color: '#6B6F78', marginTop: 24, flexWrap: 'wrap' },
   footerLink: { color: '#E87B3E', fontWeight: 600, transition: 'color 0.15s' },
   footerMeta: { color: '#6B6F78' },
+
 };
