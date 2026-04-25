@@ -9,12 +9,10 @@ export default function LandingPage() {
         <div style={styles.bracketTR} aria-hidden />
         <div style={styles.bracketBL} aria-hidden />
         <div style={styles.bracketBR} aria-hidden />
-        <div style={styles.logo}>
-          <LockLogo size={80} />
+        <div style={styles.brandRow}>
+          <MonogramS size={48} />
+          <h1 style={styles.title}>SatoshiLock</h1>
         </div>
-
-        <div style={styles.heroId}>SLK.LANDING/V1.0/2026</div>
-        <h1 style={styles.title}>SatoshiLock</h1>
         <p style={styles.tagline}>
           Token vesting, done right. On any chain.
         </p>
@@ -39,9 +37,6 @@ export default function LandingPage() {
           </a>
         </div>
 
-        <div style={styles.features}>
-          Immutable &middot; Non-custodial &middot; Open source &middot; Zero protocol fees
-        </div>
 
         <div style={styles.divider} />
 
@@ -56,9 +51,8 @@ export default function LandingPage() {
         </div>
 
         <div style={styles.footer}>
-          <a href="https://github.com/diamenhen" style={styles.footerLink} target="_blank" rel="noopener">GitHub</a>
-          <span style={{color: '#2A2D36'}}>&middot;</span>
-          <a href="https://x.com/AriantheChain" style={styles.footerLink} target="_blank" rel="noopener">Twitter</a>
+          <span style={styles.footerMeta}>Immutable &middot; Non-custodial &middot; Open source &middot; Zero protocol fees</span>
+          <span>Built by <a href="https://x.com/AriantheChain" style={styles.footerLink} target="_blank" rel="noopener">@AriantheChain</a></span>
         </div>
       </div>
     </div>
@@ -76,19 +70,11 @@ function ContractRow({ chain, address, href }) {
   );
 }
 
-function LockLogo({ size = 80 }) {
+function MonogramS({ size = 72 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 32 32" fill="none">
-      <defs>
-        <linearGradient id="lockG" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#E87B3E" />
-          <stop offset="1" stopColor="#F4A460" />
-        </linearGradient>
-      </defs>
-      <rect x="6" y="14" width="20" height="14" rx="2.5" stroke="url(#lockG)" strokeWidth="2.2" fill="none"/>
-      <path d="M10 14V10a6 6 0 1 1 12 0v4" stroke="url(#lockG)" strokeWidth="2.2" fill="none" strokeLinecap="round"/>
-      <circle cx="16" cy="20" r="1.8" fill="url(#lockG)" />
-      <rect x="15.1" y="20.5" width="1.8" height="4" rx="0.8" fill="url(#lockG)" />
+      <rect x="2" y="2" width="28" height="28" stroke="#E87B3E" strokeWidth="2.2" fill="none"/>
+      <text x="16" y="24" textAnchor="middle" fontFamily='"Arial Black", sans-serif' fontSize="22" fontWeight="900" fontStyle="italic" fill="#E87B3E">S</text>
     </svg>
   );
 }
@@ -107,15 +93,14 @@ function Fonts() {
 }
 
 const styles = {
-  page: { minHeight: '100vh', background: '#0B0C10', color: '#ECEBE4', fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '40px 24px' },
+  page: { minHeight: '100vh', background: '#0B0C10', color: '#ECEBE4', fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 24px' },
   container: { width: '100%', maxWidth: 760, textAlign: 'center' },
   bracketTL: { position: 'absolute', top: 16, left: 16, width: 24, height: 24, borderTop: '3px solid #E87B3E', borderLeft: '3px solid #E87B3E', zIndex: 10 },
   bracketTR: { position: 'absolute', top: 16, right: 16, width: 24, height: 24, borderTop: '3px solid #E87B3E', borderRight: '3px solid #E87B3E', zIndex: 10 },
   bracketBL: { position: 'absolute', bottom: 16, left: 16, width: 24, height: 24, borderBottom: '3px solid #E87B3E', borderLeft: '3px solid #E87B3E', zIndex: 10 },
   bracketBR: { position: 'absolute', bottom: 16, right: 16, width: 24, height: 24, borderBottom: '3px solid #E87B3E', borderRight: '3px solid #E87B3E', zIndex: 10 },
-  heroId: { fontFamily: 'JetBrains Mono, Consolas, monospace', fontSize: 11, color: '#E87B3E', letterSpacing: '0.25em', marginBottom: 18, textTransform: 'uppercase' },
-  logo: { display: 'inline-block', filter: 'drop-shadow(0 0 30px rgba(232, 123, 62, 0.4))', marginBottom: 24 },
-  title: { fontSize: 52, fontWeight: 800, letterSpacing: '-0.03em', margin: 0, marginBottom: 14, background: 'linear-gradient(135deg, #E87B3E 0%, #F4A460 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' },
+  brandRow: { display: 'inline-flex', alignItems: 'center', gap: 14, marginBottom: 18, filter: 'drop-shadow(0 0 30px rgba(232, 123, 62, 0.25))' },
+  title: { fontSize: 52, fontWeight: 800, letterSpacing: '-0.03em', margin: 0, background: 'linear-gradient(135deg, #E87B3E 0%, #F4A460 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' },
   tagline: { fontSize: 17, color: '#9B9A95', lineHeight: 1.6, margin: 0, marginBottom: 48 },
   cards: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, marginBottom: 32 },
   card: { background: '#16181E', border: '1px solid #2A2D36', borderRadius: 16, padding: '32px 20px', color: '#ECEBE4', transition: 'all 0.2s', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', cursor: 'pointer' },
@@ -124,15 +109,15 @@ const styles = {
   cardTitle: { fontSize: 22, fontWeight: 700, margin: 0, marginBottom: 8, letterSpacing: '-0.01em' },
   cardDescription: { fontSize: 13, color: '#9B9A95', lineHeight: 1.5, margin: 0, marginBottom: 20, minHeight: 40 },
   cardCta: { background: '#E87B3E', color: '#000', fontSize: 11, fontWeight: 900, padding: '11px 20px', borderRadius: 0, textTransform: 'uppercase', letterSpacing: '0.15em', fontFamily: 'JetBrains Mono, Consolas, monospace' },
-  features: { fontSize: 12, color: '#6B6F78', marginBottom: 24, letterSpacing: '0.02em' },
   divider: { height: 1, background: '#2A2D36', margin: '24px 0' },
   contractsSection: { marginBottom: 20 },
   contractsTitle: { fontSize: 10, fontWeight: 600, color: '#6B6F78', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 14 },
   contractsList: { display: 'flex', flexDirection: 'column', gap: 2 },
-  contractRow: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 16px', borderRadius: 8, color: '#9B9A95', fontSize: 12, transition: 'background 0.15s' },
-  contractChain: { fontWeight: 500, color: '#F4A460', flex: '0 0 auto', textAlign: 'left' },
-  contractAddr: { fontFamily: 'monospace', fontSize: 11, color: '#6B6F78', flex: '1 1 auto', textAlign: 'center' },
-  contractArrow: { color: '#6B6F78', fontSize: 12, flex: '0 0 auto' },
-  footer: { display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12, fontSize: 12, color: '#6B6F78', marginTop: 24 },
-  footerLink: { color: '#9B9A95', transition: 'color 0.15s' },
+  contractRow: { display: 'grid', gridTemplateColumns: '180px 1fr 24px', alignItems: 'center', gap: 16, padding: '10px 16px', borderRadius: 8, color: '#9B9A95', fontSize: 12, transition: 'background 0.15s' },
+  contractChain: { fontWeight: 500, color: '#F4A460', textAlign: 'left' },
+  contractAddr: { fontFamily: 'monospace', fontSize: 11, color: '#6B6F78', textAlign: 'center' },
+  contractArrow: { color: '#6B6F78', fontSize: 12, textAlign: 'right' },
+  footer: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, fontSize: 12, color: '#6B6F78', marginTop: 24, flexWrap: 'wrap' },
+  footerLink: { color: '#E87B3E', fontWeight: 600, transition: 'color 0.15s' },
+  footerMeta: { color: '#6B6F78' },
 };
