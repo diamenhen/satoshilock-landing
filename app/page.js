@@ -4,6 +4,7 @@ import { useState } from 'react';
 export default function LandingPage() {
   const [pickerOpen, setPickerOpen] = useState(false);
   const openPicker = (e) => { e.preventDefault(); setPickerOpen(true); };
+
   return (
     <>
       <Fonts />
@@ -22,7 +23,7 @@ export default function LandingPage() {
         <a href="#" onClick={openPicker} className="tcg-nav-cta">Launch App</a>
       </nav>
 
-      <section className="tcg-hero">
+      <section id="hero" className="tcg-hero">
         <div>
           <div className="tcg-eyebrow reveal">Live · Multi-Chain · Self-Custodial</div>
 
@@ -125,6 +126,7 @@ export default function LandingPage() {
             <div className="trust-d">Open-source verified contracts on Etherscan, BSCScan, BaseScan, and Solscan.</div>
           </div>
         </div>
+
         <div className="contracts-list">
           <div className="contracts-title">— PRODUCTION CONTRACTS —</div>
           <a href="https://etherscan.io/address/0xD40Febe77b4a9bdE56e13cf4067638b98A061925" target="_blank" rel="noopener noreferrer" className="contract-row">
@@ -184,9 +186,9 @@ export default function LandingPage() {
           <div className="footer-col">
             <h4>Product</h4>
             <ul>
-              <li><a href="https://evm.satoshilock.app">Create Lock</a></li>
-              <li><a href="https://evm.satoshilock.app">My Locks</a></li>
-              <li><a href="https://sol.satoshilock.app">Claim</a></li>
+              <li><a href="#" onClick={openPicker}>Create Lock</a></li>
+              <li><a href="#" onClick={openPicker}>My Locks</a></li>
+              <li><a href="#" onClick={openPicker}>Claim</a></li>
               <li className="muted">Vault Bot</li>
             </ul>
           </div>
@@ -214,7 +216,8 @@ export default function LandingPage() {
           <span>FORGED IN SOUTHEAST ASIA</span>
         </div>
       </footer>
-    {pickerOpen && (
+
+      {pickerOpen && (
         <div className="picker-overlay" onClick={() => setPickerOpen(false)}>
           <div className="picker-modal" onClick={(e) => e.stopPropagation()}>
             <button className="picker-close" onClick={() => setPickerOpen(false)}>×</button>
@@ -268,8 +271,6 @@ function BrandMark({ idPrefix = 'b' }) {
 function Fonts() {
   return (
     <style jsx global>{`
-      
-
       :root {
         --bg-deep: #07080f;
         --bg-mid: #0d1020;
@@ -288,6 +289,7 @@ function Fonts() {
 
       *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+      html { scroll-behavior: smooth; }
       html, body {
         background: var(--bg-deep);
         color: var(--ink);
@@ -347,12 +349,7 @@ function Fonts() {
         color: var(--gold-bright);
         text-transform: uppercase;
       }
-      .brand-mark {
-        width: 34px;
-        height: 34px;
-        flex-shrink: 0;
-        display: block;
-      }
+      .brand-mark { width: 34px; height: 34px; flex-shrink: 0; display: block; }
 
       .tcg-nav-links {
         display: flex;
@@ -488,10 +485,7 @@ function Fonts() {
         transition: all 0.25s;
         display: inline-block;
       }
-      .btn-secondary:hover {
-        border-color: var(--gold);
-        color: var(--gold-bright);
-      }
+      .btn-secondary:hover { border-color: var(--gold); color: var(--gold-bright); }
 
       .stats-row {
         margin-top: 56px;
@@ -573,12 +567,7 @@ function Fonts() {
       }
       .lock-card:hover::before { opacity: 1; }
 
-      .rarity-bar {
-        position: absolute;
-        top: 0; left: 0; right: 0;
-        height: 6px;
-        z-index: 4;
-      }
+      .rarity-bar { position: absolute; top: 0; left: 0; right: 0; height: 6px; z-index: 4; }
       .card-evm .rarity-bar { background: linear-gradient(90deg, var(--gold), var(--gold-bright)); }
       .card-sol .rarity-bar { background: linear-gradient(90deg, var(--violet), var(--magenta)); }
 
@@ -703,10 +692,7 @@ function Fonts() {
         gap: 56px;
         align-items: start;
       }
-      .trust-item {
-        border-left: 2px solid var(--gold);
-        padding-left: 20px;
-      }
+      .trust-item { border-left: 2px solid var(--gold); padding-left: 20px; }
       .trust-num {
         font-family: var(--font-cinzel), serif;
         font-size: 36px;
@@ -723,154 +709,14 @@ function Fonts() {
         text-transform: uppercase;
         margin-bottom: 12px;
       }
-      .trust-d {
-        font-size: 13px;
-        color: var(--ink-dim);
-        line-height: 1.6;
-      }
-
-      .how {
-        padding: 120px 48px 80px;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-      .section-eyebrow {
-        font-family: var(--font-jetbrains), monospace;
-        font-size: 11px;
-        letter-spacing: 0.22em;
-        text-transform: uppercase;
-        color: var(--gold);
-        margin-bottom: 16px;
-      }
-      h2 {
-        font-family: var(--font-cinzel), serif;
-        font-size: clamp(36px, 4vw, 56px);
-        font-weight: 700;
-        line-height: 1.05;
-        letter-spacing: -0.01em;
-        margin-bottom: 56px;
-        max-width: 760px;
-      }
-      h2 em { color: var(--gold-bright); font-style: italic; }
-
-      .steps-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
-      }
-      .step-card {
-        background: linear-gradient(160deg, var(--bg-card) 0%, var(--bg-mid) 100%);
-        border: 1px solid var(--line);
-        border-radius: 12px;
-        padding: 32px 28px;
-        position: relative;
-        overflow: hidden;
-        transition: all 0.3s;
-      }
-      .step-card:hover {
-        border-color: var(--gold);
-        transform: translateY(-4px);
-      }
-      .step-card::before {
-        content: '';
-        position: absolute;
-        top: 0; left: 0; right: 0;
-        height: 2px;
-        background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
-        opacity: 0.4;
-      }
-      .step-num {
-        font-family: var(--font-cinzel), serif;
-        font-size: 13px;
-        font-weight: 700;
-        color: var(--gold-bright);
-        letter-spacing: 0.18em;
-        margin-bottom: 18px;
-      }
-      .step-title {
-        font-family: var(--font-cinzel), serif;
-        font-size: 22px;
-        font-weight: 700;
-        color: var(--ink);
-        margin-bottom: 12px;
-        line-height: 1.2;
-      }
-      .step-desc {
-        color: var(--ink-dim);
-        font-size: 14px;
-        line-height: 1.65;
-      }
-
-      .tcg-footer {
-        padding: 80px 48px 48px;
-        border-top: 1px solid var(--line);
-        margin-top: 80px;
-      }
-      .footer-grid {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 2fr 1fr 1fr 1fr;
-        gap: 48px;
-        margin-bottom: 56px;
-      }
-      .footer-brand-block .tcg-brand { margin-bottom: 16px; }
-      .footer-tag {
-        font-size: 13px;
-        color: var(--ink-mute);
-        line-height: 1.65;
-        max-width: 320px;
-      }
-      .footer-col h4 {
-        font-family: var(--font-jetbrains), monospace;
-        font-size: 11px;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-        color: var(--gold);
-        margin-bottom: 18px;
-      }
-      .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-      .footer-col a {
-        color: var(--ink-dim);
-        font-size: 14px;
-        transition: color 0.2s;
-      }
-      .footer-col a:hover { color: var(--gold-bright); }
-      .footer-col li.muted {
-        color: var(--ink-mute);
-        font-size: 14px;
-        cursor: default;
-      }
-      .footer-bottom {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding-top: 24px;
-        border-top: 1px solid var(--line);
-        display: flex;
-        justify-content: space-between;
-        font-family: var(--font-jetbrains), monospace;
-        font-size: 11px;
-        color: var(--ink-mute);
-        letter-spacing: 0.1em;
-      }
-
-      .reveal {
-        opacity: 0;
-        transform: translateY(30px);
-        animation: reveal 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-      }
-      .reveal.delay-1 { animation-delay: 0.15s; }
-      .reveal.delay-2 { animation-delay: 0.3s; }
-      .reveal.delay-3 { animation-delay: 0.45s; }
-      .reveal.delay-4 { animation-delay: 0.6s; }
-      @keyframes reveal { to { opacity: 1; transform: translateY(0); } }
+      .trust-d { font-size: 13px; color: var(--ink-dim); line-height: 1.6; }
 
       .contracts-list {
         max-width: 760px;
         margin: 56px auto 0;
         display: flex;
         flex-direction: column;
-        gap: 2px;
+        gap: 6px;
       }
       .contracts-title {
         font-family: var(--font-jetbrains), monospace;
@@ -913,6 +759,104 @@ function Fonts() {
         color: var(--gold);
         font-size: 14px;
         font-weight: 700;
+      }
+
+      .how { padding: 120px 48px 80px; max-width: 1200px; margin: 0 auto; }
+      .section-eyebrow {
+        font-family: var(--font-jetbrains), monospace;
+        font-size: 11px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 16px;
+      }
+      h2 {
+        font-family: var(--font-cinzel), serif;
+        font-size: clamp(36px, 4vw, 56px);
+        font-weight: 700;
+        line-height: 1.05;
+        letter-spacing: -0.01em;
+        margin-bottom: 56px;
+        max-width: 760px;
+      }
+      h2 em { color: var(--gold-bright); font-style: italic; }
+
+      .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+      .step-card {
+        background: linear-gradient(160deg, var(--bg-card) 0%, var(--bg-mid) 100%);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 32px 28px;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s;
+      }
+      .step-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+      .step-card::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+        opacity: 0.4;
+      }
+      .step-num {
+        font-family: var(--font-cinzel), serif;
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--gold-bright);
+        letter-spacing: 0.18em;
+        margin-bottom: 18px;
+      }
+      .step-title {
+        font-family: var(--font-cinzel), serif;
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--ink);
+        margin-bottom: 12px;
+        line-height: 1.2;
+      }
+      .step-desc { color: var(--ink-dim); font-size: 14px; line-height: 1.65; }
+
+      .tcg-footer { padding: 80px 48px 48px; border-top: 1px solid var(--line); margin-top: 80px; }
+      .footer-grid {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 48px;
+        margin-bottom: 56px;
+      }
+      .footer-brand-block .tcg-brand { margin-bottom: 16px; }
+      .footer-tag {
+        font-size: 13px;
+        color: var(--ink-mute);
+        line-height: 1.65;
+        max-width: 320px;
+      }
+      .footer-col h4 {
+        font-family: var(--font-jetbrains), monospace;
+        font-size: 11px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 18px;
+      }
+      .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+      .footer-col a { color: var(--ink-dim); font-size: 14px; transition: color 0.2s; cursor: pointer; }
+      .footer-col a:hover { color: var(--gold-bright); }
+      .footer-col li.muted { color: var(--ink-mute); font-size: 14px; cursor: default; }
+      .footer-bottom {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-top: 24px;
+        border-top: 1px solid var(--line);
+        display: flex;
+        justify-content: space-between;
+        font-family: var(--font-jetbrains), monospace;
+        font-size: 11px;
+        color: var(--ink-mute);
+        letter-spacing: 0.1em;
       }
 
       .picker-overlay {
@@ -976,11 +920,7 @@ function Fonts() {
         margin-bottom: 32px;
         letter-spacing: -0.01em;
       }
-      .picker-options {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 16px;
-      }
+      .picker-options { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
       .picker-option {
         background: var(--bg-deep);
         border: 1px solid var(--line-strong);
@@ -1019,7 +959,32 @@ function Fonts() {
         color: var(--ink-mute);
         letter-spacing: 0.14em;
         text-transform: uppercase;
-        margin-bottom: 12px;@media (max-width: 960px) {
+        margin-bottom: 12px;
+      }
+      .picker-cta {
+        font-family: var(--font-cinzel), serif;
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--ink);
+        font-weight: 700;
+        padding-top: 8px;
+        border-top: 1px solid var(--line);
+        width: 100%;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: reveal 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+      }
+      .reveal.delay-1 { animation-delay: 0.15s; }
+      .reveal.delay-2 { animation-delay: 0.3s; }
+      .reveal.delay-3 { animation-delay: 0.45s; }
+      .reveal.delay-4 { animation-delay: 0.6s; }
+      @keyframes reveal { to { opacity: 1; transform: translateY(0); } }
+
+      @media (max-width: 960px) {
         .tcg-hero { grid-template-columns: 1fr; padding: 120px 24px 60px; }
         .card-stack { height: 500px; transform: scale(0.85); }
         .tcg-nav { padding: 18px 24px; }
@@ -1030,6 +995,8 @@ function Fonts() {
         .how { padding: 80px 24px; }
         .trust-band { padding: 60px 24px; }
         .tcg-footer { padding: 60px 24px 32px; }
+        .picker-options { grid-template-columns: 1fr; }
+        .picker-modal { padding: 36px 24px; }
       }
     `}</style>
   );
