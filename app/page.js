@@ -15,8 +15,8 @@ export default function LandingPage() {
           SatoshiLock
         </div>
         <div className="tcg-nav-links">
-          <a href="https://evm.satoshilock.app">Vault</a>
-          <a href="https://sol.satoshilock.app">Locks</a>
+          <a href="#" onClick={openPicker}>Vault</a>
+          <a href="#" onClick={openPicker}>Locks</a>
           <a href="#how">Docs</a>
           <a href="#trust">Audit</a>
         </div>
@@ -195,7 +195,7 @@ export default function LandingPage() {
           <div className="footer-col">
             <h4>Resources</h4>
             <ul>
-              <li><a href="#how">Documentation</a></li>
+              <li className="muted">Documentation</li>
               <li><a href="#trust">Smart Contracts</a></li>
               <li className="muted">API</li>
               <li className="muted">Changelog</li>
@@ -359,6 +359,7 @@ function Fonts() {
         color: var(--ink-dim);
         letter-spacing: 0.05em;
       }
+      .tcg-nav-links a { cursor: pointer; }
       .tcg-nav-links a:hover { color: var(--ink); }
 
       .tcg-nav-cta {
