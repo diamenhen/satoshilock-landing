@@ -219,7 +219,7 @@ function BrandMark({ idPrefix = 'b' }) {
 function Fonts() {
   return (
     <style jsx global>{`
-      @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@300;500;700;800&display=swap');
+      
 
       :root {
         --bg-deep: #07080f;
@@ -242,7 +242,7 @@ function Fonts() {
       html, body {
         background: var(--bg-deep);
         color: var(--ink);
-        font-family: 'Manrope', sans-serif;
+        font-family: var(--font-manrope), sans-serif;
         overflow-x: hidden;
         line-height: 1.5;
         -webkit-font-smoothing: antialiased;
@@ -291,7 +291,7 @@ function Fonts() {
         display: flex;
         align-items: center;
         gap: 12px;
-        font-family: 'Cinzel', serif;
+        font-family: var(--font-cinzel), serif;
         font-weight: 700;
         font-size: 18px;
         letter-spacing: 0.16em;
@@ -320,7 +320,7 @@ function Fonts() {
         background: linear-gradient(135deg, var(--gold) 0%, var(--gold-bright) 100%);
         color: var(--bg-deep);
         border: none;
-        font-family: 'Cinzel', serif;
+        font-family: var(--font-cinzel), serif;
         font-weight: 700;
         font-size: 12px;
         letter-spacing: 0.12em;
@@ -352,7 +352,7 @@ function Fonts() {
         padding: 8px 16px;
         border: 1px solid var(--line-strong);
         border-radius: 999px;
-        font-family: 'JetBrains Mono', monospace;
+        font-family: var(--font-jetbrains), monospace;
         font-size: 11px;
         letter-spacing: 0.18em;
         color: var(--gold-bright);
@@ -372,7 +372,7 @@ function Fonts() {
       @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
 
       h1 {
-        font-family: 'Cinzel', serif;
+        font-family: var(--font-cinzel), serif;
         font-size: clamp(48px, 6vw, 88px);
         font-weight: 900;
         line-height: 0.95;
@@ -411,7 +411,7 @@ function Fonts() {
         background: linear-gradient(135deg, var(--gold) 0%, var(--gold-bright) 100%);
         color: var(--bg-deep);
         border: none;
-        font-family: 'Cinzel', serif;
+        font-family: var(--font-cinzel), serif;
         font-weight: 700;
         font-size: 14px;
         letter-spacing: 0.14em;
@@ -431,7 +431,7 @@ function Fonts() {
         background: transparent;
         color: var(--ink);
         border: 1px solid var(--line-strong);
-        font-family: 'JetBrains Mono', monospace;
+        font-family: var(--font-jetbrains), monospace;
         font-size: 13px;
         letter-spacing: 0.08em;
         cursor: pointer;
@@ -451,14 +451,14 @@ function Fonts() {
         gap: 56px;
       }
       .stat-num {
-        font-family: 'Cinzel', serif;
+        font-family: var(--font-cinzel), serif;
         font-size: 28px;
         font-weight: 700;
         color: var(--gold-bright);
         margin-bottom: 4px;
       }
       .stat-label {
-        font-family: 'JetBrains Mono', monospace;
+        font-family: var(--font-jetbrains), monospace;
         font-size: 10px;
         color: var(--ink-mute);
         letter-spacing: 0.16em;
@@ -541,7 +541,7 @@ function Fonts() {
         border-bottom: 1px solid var(--line);
       }
       .card-symbol {
-        font-family: 'Cinzel', serif;
+        font-family: var(--font-cinzel), serif;
         font-size: 22px;
         font-weight: 700;
         letter-spacing: 0.06em;
@@ -550,7 +550,7 @@ function Fonts() {
       .card-sol .card-symbol { color: var(--magenta); }
 
       .card-tier {
-        font-family: 'JetBrains Mono', monospace;
+        font-family: var(--font-jetbrains), monospace;
         font-size: 9px;
         letter-spacing: 0.18em;
         text-transform: uppercase;
@@ -584,7 +584,7 @@ function Fonts() {
         position: absolute;
         top: 50%; left: 50%;
         transform: translate(-50%, -50%);
-        font-family: 'Cinzel', serif;
+        font-family: var(--font-cinzel), serif;
         font-weight: 900;
         font-size: 100px;
         letter-spacing: -0.04em;
@@ -611,7 +611,7 @@ function Fonts() {
         gap: 14px 18px;
       }
       .stat-l {
-        font-family: 'JetBrains Mono', monospace;
+        font-family: var(--font-jetbrains), monospace;
         font-size: 9px;
         color: var(--ink-mute);
         letter-spacing: 0.14em;
@@ -619,7 +619,7 @@ function Fonts() {
         margin-bottom: 5px;
       }
       .stat-v {
-        font-family: 'Cinzel', serif;
+        font-family: var(--font-cinzel), serif;
         font-size: 14px;
         color: var(--ink);
         font-weight: 700;
@@ -633,7 +633,7 @@ function Fonts() {
         display: flex;
         justify-content: center;
         align-items: center;
-        font-family: 'JetBrains Mono', monospace;
+        font-family: var(--font-jetbrains), monospace;
         font-size: 10px;
         color: var(--ink-mute);
         letter-spacing: 0.16em;
@@ -659,7 +659,7 @@ function Fonts() {
         padding-left: 20px;
       }
       .trust-num {
-        font-family: 'Cinzel', serif;
+        font-family: var(--font-cinzel), serif;
         font-size: 36px;
         font-weight: 900;
         color: var(--gold-bright);
@@ -667,7 +667,7 @@ function Fonts() {
         letter-spacing: -0.02em;
       }
       .trust-l {
-        font-family: 'JetBrains Mono', monospace;
+        font-family: var(--font-jetbrains), monospace;
         font-size: 10px;
         color: var(--ink-mute);
         letter-spacing: 0.16em;
@@ -686,7 +686,7 @@ function Fonts() {
         margin: 0 auto;
       }
       .section-eyebrow {
-        font-family: 'JetBrains Mono', monospace;
+        font-family: var(--font-jetbrains), monospace;
         font-size: 11px;
         letter-spacing: 0.22em;
         text-transform: uppercase;
@@ -694,7 +694,7 @@ function Fonts() {
         margin-bottom: 16px;
       }
       h2 {
-        font-family: 'Cinzel', serif;
+        font-family: var(--font-cinzel), serif;
         font-size: clamp(36px, 4vw, 56px);
         font-weight: 700;
         line-height: 1.05;
@@ -731,7 +731,7 @@ function Fonts() {
         opacity: 0.4;
       }
       .step-num {
-        font-family: 'Cinzel', serif;
+        font-family: var(--font-cinzel), serif;
         font-size: 13px;
         font-weight: 700;
         color: var(--gold-bright);
@@ -739,7 +739,7 @@ function Fonts() {
         margin-bottom: 18px;
       }
       .step-title {
-        font-family: 'Cinzel', serif;
+        font-family: var(--font-cinzel), serif;
         font-size: 22px;
         font-weight: 700;
         color: var(--ink);
@@ -773,7 +773,7 @@ function Fonts() {
         max-width: 320px;
       }
       .footer-col h4 {
-        font-family: 'JetBrains Mono', monospace;
+        font-family: var(--font-jetbrains), monospace;
         font-size: 11px;
         letter-spacing: 0.2em;
         text-transform: uppercase;
@@ -799,7 +799,7 @@ function Fonts() {
         border-top: 1px solid var(--line);
         display: flex;
         justify-content: space-between;
-        font-family: 'JetBrains Mono', monospace;
+        font-family: var(--font-jetbrains), monospace;
         font-size: 11px;
         color: var(--ink-mute);
         letter-spacing: 0.1em;

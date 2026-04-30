@@ -1,3 +1,26 @@
+import { Cinzel, Manrope, JetBrains_Mono } from "next/font/google";
+
+const cinzel = Cinzel({
+  subsets: ["latin"],
+  weight: ["500", "700", "900"],
+  variable: "--font-cinzel",
+  display: "swap",
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  weight: ["300", "500", "700", "800"],
+  variable: "--font-manrope",
+  display: "swap",
+});
+
+const jetbrains = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-jetbrains",
+  display: "swap",
+});
+
 export const metadata = {
   title: "SatoshiLock",
   description: "Immutable, non-custodial token vesting on Solana, Ethereum, Base, and BNB Smart Chain. Open source. Zero protocol fees.",
@@ -17,7 +40,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${cinzel.variable} ${manrope.variable} ${jetbrains.variable}`}>
       <body>{children}</body>
     </html>
   );
