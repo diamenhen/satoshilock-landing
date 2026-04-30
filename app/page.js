@@ -122,6 +122,29 @@ export default function LandingPage() {
             <div className="trust-d">Open-source verified contracts on Etherscan, BSCScan, BaseScan, and Solscan.</div>
           </div>
         </div>
+        <div className="contracts-list">
+          <div className="contracts-title">— PRODUCTION CONTRACTS —</div>
+          <a href="https://etherscan.io/address/0xD40Febe77b4a9bdE56e13cf4067638b98A061925" target="_blank" rel="noopener noreferrer" className="contract-row">
+            <span className="contract-chain">Ethereum Mainnet</span>
+            <span className="contract-addr">0xD40F...1925</span>
+            <span className="contract-arrow">↗</span>
+          </a>
+          <a href="https://basescan.org/address/0xbD1d35b574361632EC2cc1376dCD346741997474" target="_blank" rel="noopener noreferrer" className="contract-row">
+            <span className="contract-chain">Base Mainnet</span>
+            <span className="contract-addr">0xbD1d...7474</span>
+            <span className="contract-arrow">↗</span>
+          </a>
+          <a href="https://bscscan.com/address/0xbD1d35b574361632EC2cc1376dCD346741997474" target="_blank" rel="noopener noreferrer" className="contract-row">
+            <span className="contract-chain">BNB Smart Chain</span>
+            <span className="contract-addr">0xbD1d...7474</span>
+            <span className="contract-arrow">↗</span>
+          </a>
+          <a href="https://solscan.io/account/CE7vQdyjXSEvPdeEdrmbEpM8hSPZi2L4MKAWi26kpZ2H" target="_blank" rel="noopener noreferrer" className="contract-row">
+            <span className="contract-chain">Solana Mainnet</span>
+            <span className="contract-addr">CE7v...pZ2H</span>
+            <span className="contract-arrow">↗</span>
+          </a>
+        </div>
       </section>
 
       <section id="how" className="how">
@@ -815,6 +838,56 @@ function Fonts() {
       .reveal.delay-3 { animation-delay: 0.45s; }
       .reveal.delay-4 { animation-delay: 0.6s; }
       @keyframes reveal { to { opacity: 1; transform: translateY(0); } }
+
+      .contracts-list {
+        max-width: 760px;
+        margin: 56px auto 0;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+      .contracts-title {
+        font-family: var(--font-jetbrains), monospace;
+        font-size: 11px;
+        letter-spacing: 0.22em;
+        text-align: center;
+        color: var(--gold);
+        margin-bottom: 24px;
+      }
+      .contract-row {
+        display: grid;
+        grid-template-columns: 1fr auto auto;
+        align-items: center;
+        gap: 16px;
+        padding: 14px 20px;
+        background: rgba(7,8,15,0.4);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.2s;
+      }
+      .contract-row:hover {
+        border-color: var(--gold);
+        background: rgba(212,168,87,0.05);
+        transform: translateX(2px);
+      }
+      .contract-chain {
+        font-family: var(--font-cinzel), serif;
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--gold-bright);
+        letter-spacing: 0.04em;
+      }
+      .contract-addr {
+        font-family: var(--font-jetbrains), monospace;
+        font-size: 11px;
+        color: var(--ink-mute);
+      }
+      .contract-arrow {
+        color: var(--gold);
+        font-size: 14px;
+        font-weight: 700;
+      }
 
       @media (max-width: 960px) {
         .tcg-hero { grid-template-columns: 1fr; padding: 120px 24px 60px; }
