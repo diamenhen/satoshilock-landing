@@ -15,7 +15,6 @@ export default function LandingPage() {
           SatoshiLock
         </div>
         <div className="tcg-nav-links">
-          <a href="#" onClick={openPicker}>Vault</a>
           <a href="#" onClick={openPicker}>Locks</a>
           <a href="#how">Docs</a>
           <a href="#trust">Audit</a>
@@ -189,7 +188,6 @@ export default function LandingPage() {
               <li><a href="#" onClick={openPicker}>Create Lock</a></li>
               <li><a href="#" onClick={openPicker}>My Locks</a></li>
               <li><a href="#" onClick={openPicker}>Claim</a></li>
-              <li className="muted">Vault Bot</li>
             </ul>
           </div>
           <div className="footer-col">
