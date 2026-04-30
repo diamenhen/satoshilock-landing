@@ -1,6 +1,9 @@
 'use client';
+import { useState } from 'react';
 
 export default function LandingPage() {
+  const [pickerOpen, setPickerOpen] = useState(false);
+  const openPicker = (e) => { e.preventDefault(); setPickerOpen(true); };
   return (
     <>
       <Fonts />
@@ -16,7 +19,7 @@ export default function LandingPage() {
           <a href="#how">Docs</a>
           <a href="#trust">Audit</a>
         </div>
-        <a href="https://evm.satoshilock.app" className="tcg-nav-cta">Launch App</a>
+        <a href="#" onClick={openPicker} className="tcg-nav-cta">Launch App</a>
       </nav>
 
       <section className="tcg-hero">
@@ -34,7 +37,7 @@ export default function LandingPage() {
           </p>
 
           <div className="cta-row reveal delay-3">
-            <a href="https://evm.satoshilock.app" className="btn-primary">Create Lock →</a>
+            <a href="#" onClick={openPicker} className="btn-primary">Create Lock →</a>
             <a href="#trust" className="btn-secondary">View Contracts</a>
           </div>
 
@@ -211,6 +214,29 @@ export default function LandingPage() {
           <span>FORGED IN SOUTHEAST ASIA</span>
         </div>
       </footer>
+    {pickerOpen && (
+        <div className="picker-overlay" onClick={() => setPickerOpen(false)}>
+          <div className="picker-modal" onClick={(e) => e.stopPropagation()}>
+            <button className="picker-close" onClick={() => setPickerOpen(false)}>×</button>
+            <div className="picker-eyebrow">Choose Your Chain</div>
+            <h3 className="picker-title">Where do you want to lock?</h3>
+            <div className="picker-options">
+              <a href="https://evm.satoshilock.app" className="picker-option picker-evm">
+                <div className="picker-glyph">Ξ</div>
+                <div className="picker-name">EVM</div>
+                <div className="picker-desc">Ethereum · Base · BSC</div>
+                <div className="picker-cta">Launch →</div>
+              </a>
+              <a href="https://sol.satoshilock.app" className="picker-option picker-sol">
+                <div className="picker-glyph">◎</div>
+                <div className="picker-name">Solana</div>
+                <div className="picker-desc">SPL · Token-2022</div>
+                <div className="picker-cta">Launch →</div>
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }
@@ -889,7 +915,111 @@ function Fonts() {
         font-weight: 700;
       }
 
-      @media (max-width: 960px) {
+      .picker-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(7,8,15,0.85);
+        backdrop-filter: blur(8px);
+        z-index: 200;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        animation: fadeIn 0.2s ease;
+      }
+      @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+      .picker-modal {
+        background: linear-gradient(160deg, var(--bg-card) 0%, var(--bg-mid) 100%);
+        border: 1px solid var(--gold);
+        border-radius: 14px;
+        padding: 48px 40px;
+        max-width: 640px;
+        width: 100%;
+        position: relative;
+        box-shadow: 0 0 0 1px rgba(212,168,87,0.2), 0 30px 80px rgba(0,0,0,0.6);
+        animation: slideUp 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+      @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+      .picker-close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        background: transparent;
+        border: 1px solid var(--line-strong);
+        color: var(--ink-dim);
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        font-size: 18px;
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .picker-close:hover { border-color: var(--gold); color: var(--gold-bright); }
+      .picker-eyebrow {
+        font-family: var(--font-jetbrains), monospace;
+        font-size: 11px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 12px;
+        text-align: center;
+      }
+      .picker-title {
+        font-family: var(--font-cinzel), serif;
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--ink);
+        text-align: center;
+        margin-bottom: 32px;
+        letter-spacing: -0.01em;
+      }
+      .picker-options {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .picker-option {
+        background: var(--bg-deep);
+        border: 1px solid var(--line-strong);
+        border-radius: 12px;
+        padding: 32px 24px;
+        text-decoration: none;
+        text-align: center;
+        transition: all 0.25s;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+      }
+      .picker-evm:hover { border-color: var(--gold); background: rgba(212,168,87,0.06); transform: translateY(-3px); }
+      .picker-sol:hover { border-color: var(--magenta); background: rgba(236,72,153,0.06); transform: translateY(-3px); }
+      .picker-glyph {
+        font-family: var(--font-cinzel), serif;
+        font-size: 56px;
+        font-weight: 900;
+        margin-bottom: 4px;
+      }
+      .picker-evm .picker-glyph { color: var(--gold-bright); text-shadow: 0 0 30px rgba(245,217,126,0.5); }
+      .picker-sol .picker-glyph { color: var(--magenta); text-shadow: 0 0 30px rgba(236,72,153,0.5); }
+      .picker-name {
+        font-family: var(--font-cinzel), serif;
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+      }
+      .picker-evm .picker-name { color: var(--gold-bright); }
+      .picker-sol .picker-name { color: var(--magenta); }
+      .picker-desc {
+        font-family: var(--font-jetbrains), monospace;
+        font-size: 10px;
+        color: var(--ink-mute);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        margin-bottom: 12px;@media (max-width: 960px) {
         .tcg-hero { grid-template-columns: 1fr; padding: 120px 24px 60px; }
         .card-stack { height: 500px; transform: scale(0.85); }
         .tcg-nav { padding: 18px 24px; }
